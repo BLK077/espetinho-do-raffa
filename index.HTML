@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espetinho do Raffa</title>
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:"Poppins",sans-serif;
+      background:url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1600&q=80") center/cover fixed no-repeat;
+      color:#fff;
+    }
+
+    header{
+      background:rgba(0,0,0,0.7);
+      padding:10px 30px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo img{
+      width:130px;
+      cursor:pointer;
+    }
+
+    nav ul.menu{
+      list-style:none;
+      display:flex;
+      gap:30px;
+      flex-wrap:wrap;
+    }
+
+    nav ul li a{
+      color:#fff;
+      text-decoration:none;
+      font-size:1.05rem;
+      transition:.3s;
+      font-weight:500;
+    }
+
+    nav ul li a:hover{color:#ffea00;}
+
+    .hero{
+      text-align:center;
+      min-height:92vh;
+      padding:140px 20px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,0.45);
+    }
+
+    #hero-default-text h1{
+      font-size:3rem;
+      margin-bottom:10px;
+      font-weight:700;
+    }
+
+    #hero-default-text p{
+      font-size:1.6rem;
+      font-weight:400;
+    }
+
+    .dynamic-box{
+      max-width:950px;
+      min-height:350px;
+      padding:40px;
+      background:rgba(0,0,0,0.75);
+      border-radius:15px;
+      display:none;
+      animation:fade .4s;
+      font-size:1.4rem;
+      text-align:justify;
+    }
+
+    .dynamic-box h2{
+      font-size:2.4rem;
+      margin-bottom:18px;
+      color:#ffea00;
+      text-align:center;
+    }
+
+    .dynamic-box p{
+      margin-bottom:18px;
+    }
+
+    @keyframes fade{from{opacity:0}to{opacity:1}}
+
+    #zoom-modal{
+      display:none;
+      position:fixed;
+      top:0;left:0;
+      width:100%;height:100%;
+      background:rgba(0,0,0,0.9);
+      align-items:center;
+      justify-content:center;
+      z-index:2000;
+    }
+
+    #zoom-modal img{
+      width:90%;
+      max-width:1200px;
+      border:4px solid #fff;
+      border-radius:10px;
+    }
+
+    #close-modal{
+      position:absolute;
+      top:25px;right:35px;
+      font-size:38px;
+      cursor:pointer;
+      font-weight:bold;
+      color:#fff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <a href="#" id="btn-home">
+      <img src="logo.png" alt="Logo">
+    </a>
+  </div>
+
+  <nav>
+    <ul class="menu">
+      <li><a href="#" id="btn-quem">Quem somos</a></li>
+      <li><a href="#" id="btn-missao">Missão, visão e valores</a></li>
+      <li><a href="#" id="btn-diferencial">Diferencial</a></li>
+      <li><a href="#" id="btn-swot">SWOT</a></li>
+      <li><a href="#" id="btn-plano">Plano de negócio</a></li>
+      <li><a href="#" id="btn-fotos">Fotos</a></li>
+      <li><a href="#" id="btn-financeiro">Financeiro</a></li>
+      <li><a href="#" id="btn-msg">Mensagem final</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <div id="hero-default-text">
+    <h1>Bem-vindo ao Espetinho do Raffa</h1>
+    <p>Aqui o sabor encontra a boa energia.</p>
+  </div>
+
+  <div id="dynamic-content" class="dynamic-box"></div>
+
+</section>
+
+<footer style="text-align:center; padding:40px; background:rgba(0,0,0,0.7);">
+  <p>© 2025 Espetinho do Raffa — Todos os direitos reservados.</p>
+</footer>
+
+<div id="zoom-modal">
+  <span id="close-modal">✖</span>
+  <img id="zoom-image" src="">
+</div>
+
+<script>
+  const textos = {
+
+    quem: `
+      <h2>Quem somos</h2>
+
+      <p>O espetinho do Raffa nasceu da vontade de servir boa comida e criar um lugar simples, mas cheio de sabor e boa energia. Aqui a gente acredita que um bom espetinho é mais do que comida, é um momento pra relaxar, dar risada e curtir com quem a gente gosta.</p>
+
+      <p>Uma empresa inserida no ramo alimentício, sendo especializada na produção e venda de espetinhos artesanais feitos com ingredientes selecionados, temperos caseiros e frescos, proporcionando experiência única e familiarizada. Prezamos pela qualidade dos nossos produtos, respeito, tradição e inovação, buscando entregar produtos e serviços que superam as expectativas dos nossos clientes.</p>
+
+      <p>Trabalhamos com ingredientes frescos, carne bem temperada e aquele cuidado especial em cada espeto. Nosso compromisso é fazer tudo com qualidade, preço justo e um atendimento que faz o cliente se sentir à vontade, como se estivesse entre amigos.</p>
+
+      <p>Mais que um ponto de venda, o espetinho do Raffa é um cantinho de encontro, onde todo mundo é bem-vindo e sai satisfeito. Com atendimento cordial, rápido e eficiente, contamos com uma equipe dedicada e comprometida, buscando sempre a satisfação e fidelização dos nossos consumidores.</p>
+
+      <p>Estamos localizados na Avenida Frei Benjamim nº 1292, próximo ao orfanato: Escola Municipal Irmã Barbosa.</p>
+    `,
+
+    missao: `
+      <h2>Missão, visão e valores</h2>
+      <p><strong>Missão:</strong> Levar sabor e alegria para todos os momentos.</p>
+      <p><strong>Visão:</strong> Ser referência em gastronomia e confraternização.</p>
+      <p><strong>Valores:</strong> Qualidade, respeito, inovação e acolhimento.</p>
+    `,
+
+    diferencial: `
+      <h2>Diferencial</h2>
+      <p><strong>Sabor e Qualidade:</strong> Ingredientes selecionados e frescos.</p>
+      <p><strong>Preço Justo:</strong> Delícia que cabe no bolso.</p>
+      <p><strong>Momentos e Resenhas:</strong> Mais que um espetinho, uma experiência.</p>
+      <p><strong>Alimento Acolhedor:</strong> Você sempre se sente em casa.</p>
+      <p><strong>Variedade Criativa:</strong> Opções para todos os gostos.</p>
+    `,
+
+    swot: `
+      <h2>Matriz SWOT</h2>
+      <p>Clique na imagem para ampliar</p>
+      <img src="swot.jpg" style="width:100%;cursor:pointer;border-radius:10px;">
+    `,
+
+    plano: `
+      <h2>Plano de negócio</h2>
+      <p>Clique na imagem para ampliar</p>
+      <img src="canva.jpg" style="width:100%;cursor:pointer;border-radius:10px;">
+    `,
+
+    fotos: `
+      <h2>Fotos</h2>
+      <p>Clique na imagem para ampliar</p>
+      <img src="imagens.jpg" style="width:100%;cursor:pointer;border-radius:10px;">
+    `,
+
+    financeiro: `
+      <h2>Resumo Financeiro</h2>
+      <p>Clique na imagem para ampliar</p>
+      <img src="financeiro.png" style="width:100%;cursor:pointer;border-radius:10px;">
+    `,
+
+    msgfinal: `
+      <h2>Mensagem final</h2>
+      <p>"Cada pedido é uma oportunidade de alegrar seu dia. Obrigado por nos deixar fazer parte desses momentos especiais."</p>
+    `
+  };
+
+  const heroText = document.getElementById("hero-default-text");
+  const dynamic = document.getElementById("dynamic-content");
+
+  function showContent(id){
+    heroText.style.display="none";
+    dynamic.style.display="block";
+    dynamic.innerHTML=textos[id];
+
+    const img = dynamic.querySelector("img");
+    if(img){
+      img.onclick = () =>{
+        document.getElementById("zoom-modal").style.display="flex";
+        document.getElementById("zoom-image").src = img.src;
+      }
+    }
+  }
+
+  document.getElementById("close-modal").onclick=()=>document.getElementById("zoom-modal").style.display="none";
+  document.getElementById("btn-home").onclick=e=>{e.preventDefault();dynamic.style.display="none";heroText.style.display="block";};
+  document.getElementById("btn-quem").onclick=e=>{e.preventDefault();showContent("quem")};
+  document.getElementById("btn-missao").onclick=e=>{e.preventDefault();showContent("missao")};
+  document.getElementById("btn-diferencial").onclick=e=>{e.preventDefault();showContent("diferencial")};
+  document.getElementById("btn-swot").onclick=e=>{e.preventDefault();showContent("swot")};
+  document.getElementById("btn-plano").onclick=e=>{e.preventDefault();showContent("plano")};
+  document.getElementById("btn-fotos").onclick=e=>{e.preventDefault();showContent("fotos")};
+  document.getElementById("btn-financeiro").onclick=e=>{e.preventDefault();showContent("financeiro")};
+  document.getElementById("btn-msg").onclick=e=>{e.preventDefault();showContent("msgfinal")};
+</script>
+
+</body>
+</html>
